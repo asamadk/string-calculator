@@ -32,6 +32,25 @@ describe('Basic Test',() => {
         expect(res).toEqual(3);
     });
 
+    test('Negative number input test',() => {
+        const sc = new StringCalculator();
+        try{
+            sc.add('//;\n1;-2');
+        }catch(error :any){
+            expect(error.message).toBe('negative numbers not allowed')
+        }
+    });
+
+    test('Multiple Negative number input test',() => {
+        const sc = new StringCalculator();
+        try{
+            sc.add('//;\n1;-2;-3;-4');
+        }catch(error :any){
+            console.log("🚀 ~ test ~ error:", error.message)
+            expect(error.message).toEqual('negative numbers not allowed : -2,-3,-4')
+        }
+    });
+
 })
 
 export {}

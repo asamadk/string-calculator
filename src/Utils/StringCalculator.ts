@@ -20,13 +20,22 @@ class StringCalculator {
     private getTotal(numArr: string[]): number {
         console.log("🚀 ~ StringCalculator ~ add ~ numArr:", numArr)
         let total = 0;
+        let negativeNumbers = '';
+        let totalNegativeCount = 0;
         numArr.forEach((n) => {
             const tmp = parseInt(n);
             console.log("🚀 ~ StringCalculator ~ numArr.forEach ~ tmp:", tmp)
             if (!isNaN(tmp)) {
+                if(tmp < 0){
+                    totalNegativeCount++;
+                    negativeNumbers += `${tmp},`
+                }
                 total += tmp;
             }
         });
+        if(totalNegativeCount > 1){
+            throw new Error(`negative numbers not allowed : ${negativeNumbers.substring(0,negativeNumbers.length - 1)}`)
+        }
         console.log("🚀 ~ StringCalculator ~ getTotal ~ total:", total)
         return total;
     }
