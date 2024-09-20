@@ -21,15 +21,15 @@ function CalculatorComponent() {
             setMessage('Please provide a value');
             return;
         }
-        const stringCalculator = new StringCalculator();
-        const isValid = stringCalculator.validateInput(inputVal);
-        if (isValid != null) {
+        
+        try{
+            const stringCalculator = new StringCalculator();
+            const res: number = stringCalculator.add(inputVal);
+            setTotalValue(res);
+        }catch(error :any){
             setOpen(true);
-            setMessage(isValid);
-            return;
+            setMessage(error.message);
         }
-        const res: number = stringCalculator.add(inputVal);
-        setTotalValue(res);
     }
 
     function SnackBar() {
