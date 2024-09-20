@@ -20,6 +20,12 @@ describe('Basic Test',() => {
         expect(res).toEqual(6);
     });
 
+    test('Large number test',() => {
+        const sc = new StringCalculator();
+        const res = sc.add('1000,555,5970');
+        expect(res).toEqual(7525);
+    });
+
     test('Newline input between number test',() => {
         const sc = new StringCalculator();
         const res = sc.add('1\n2,3');
@@ -56,6 +62,7 @@ describe('Basic Test',() => {
             expect(error.message).toEqual('negative numbers not allowed : -2,-3,-4')
         }
     });
+
 
 })
 
