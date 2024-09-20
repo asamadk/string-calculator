@@ -11,7 +11,10 @@ class StringCalculator{
     add(numbers :string):number{
         this.validateInput(numbers);
         const delimiter = ',';
+        
+        numbers = numbers.replaceAll('\n',',');
         const numArr :string[] = numbers.split(delimiter);
+        console.log("🚀 ~ StringCalculator ~ add ~ numArr:", numArr)
         let total = 0;
         numArr.forEach((n) => total += parseInt(n))
 
