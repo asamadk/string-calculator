@@ -26,6 +26,12 @@ describe('Basic Test',() => {
         expect(res).toEqual(6);
     });
 
+    test('Newline input between number test 2',() => {
+        const sc = new StringCalculator();
+        const res = sc.add('2\n2,3\n5');
+        expect(res).toEqual(12);
+    });
+
     test('Dynamic delimiter input test',() => {
         const sc = new StringCalculator();
         const res = sc.add('//;\n1;2');

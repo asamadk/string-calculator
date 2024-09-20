@@ -16,12 +16,6 @@ function CalculatorComponent() {
     }
 
     function handleCalculate() {
-        if (inputVal == null || inputVal.length < 1) {
-            setOpen(true);
-            setMessage('Please provide a value');
-            return;
-        }
-        
         try{
             const stringCalculator = new StringCalculator();
             const res: number = stringCalculator.add(inputVal);

@@ -4,7 +4,6 @@ class StringCalculator {
         if (numbers.length < 1) {
             return 0
         }
-        // throw new Error('Invalid Input')
         return 0;
     }
 
@@ -13,6 +12,8 @@ class StringCalculator {
         const delimiter = this.getDelimiter(numbers);
         console.log("🚀 ~ StringCalculator ~ add ~ delimiter:", delimiter)
         numbers = numbers.replaceAll('\n', delimiter);
+        numbers = numbers.replaceAll('\\n', delimiter);
+        console.log("🚀 ~ StringCalculator ~ add ~ numbers:", numbers)
         const numArr: string[] = numbers.split(delimiter);
         return this.getTotal(numArr);
     }
@@ -35,6 +36,8 @@ class StringCalculator {
         });
         if(totalNegativeCount > 1){
             throw new Error(`negative numbers not allowed : ${negativeNumbers.substring(0,negativeNumbers.length - 1)}`)
+        }else if(totalNegativeCount === 1){
+            throw new Error(`negative numbers not allowed`)
         }
         console.log("🚀 ~ StringCalculator ~ getTotal ~ total:", total)
         return total;
